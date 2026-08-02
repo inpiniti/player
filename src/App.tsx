@@ -20,7 +20,7 @@ export default function App() {
       gridScrollPosRef.current = window.scrollY;
     }
     setSelectedVideo(video);
-    setIsLoading(true);
+    setIsLoading(!video.id.startsWith('tm_'));
     setViewMode('detail');
     
     // 화면 전체 및 우측 추천 목록 스크롤 최상단 초기화
