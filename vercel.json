@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/tm-stream/(.*)",
+      "destination": "/api/proxy"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
