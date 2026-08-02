@@ -196,6 +196,7 @@ export default function App() {
                 key={selectedVideo.videoUrl}
                 controls
                 autoPlay
+                referrerPolicy="no-referrer"
                 src={selectedVideo.videoUrl}
                 onLoadStart={() => setIsLoading(true)}
                 onCanPlay={() => setIsLoading(false)}
