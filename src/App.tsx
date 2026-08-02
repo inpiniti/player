@@ -192,37 +192,20 @@ export default function App() {
                   <p className="text-xs text-rose-200 font-medium">영상을 로딩 중입니다...</p>
                 </div>
               )}
-              {selectedVideo.id.startsWith('tm_') ? (
-                <div className="relative w-full h-full bg-zinc-950 flex flex-col items-center justify-center p-4 sm:p-6 text-center overflow-y-auto">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-rose-600/20 text-rose-500 flex items-center justify-center mb-2.5 border border-rose-500/30 shrink-0">
-                    <ExternalLink className="w-6 h-6 sm:w-7 sm:h-7" />
-                  </div>
-                  <h3 className="text-sm sm:text-base font-bold text-white mb-1.5 shrink-0">Tokyomotion 외부 보안 차단 영상</h3>
-                  <p className="text-[11px] sm:text-xs text-zinc-400 max-w-sm leading-relaxed mb-4 shrink-0 px-2">
-                    Tokyomotion 서버 보안 정책으로 외부 플레이어 직접 스트리밍이 차단됩니다. 아래 원본 링크 버튼을 누르면 원본 페이지로 이동하여 시청하실 수 있습니다.
-                  </p>
-                  <a
-                    href={selectedVideo.originalUrl || selectedVideo.videoUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="px-5 py-2.5 bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white font-bold text-xs rounded-full shadow-lg transition-all hover:scale-105 flex items-center gap-2 shrink-0"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    <span>Tokyomotion 원본 페이지에서 보기</span>
-                  </a>
-                </div>
-              ) : (
-                <video
-                  key={selectedVideo.videoUrl}
-                  controls
-                  autoPlay
-                  src={selectedVideo.videoUrl}
-                  onLoadStart={() => setIsLoading(true)}
-                  onCanPlay={() => setIsLoading(false)}
-                  onError={() => setIsLoading(false)}
-                  className="w-full h-full object-contain"
-                />
-              )}
+              <video
+                key={selectedVideo.videoUrl}
+                controls
+                autoPlay
+                src={
+                  selectedVideo.id.startsWith('tm_')
+                    ? `/tm-stream/video.mp4?url=${encodeURIComponent(selectedVideo.videoUrl)}`
+                    : selectedVideo.videoUrl
+                }
+                onLoadStart={() => setIsLoading(true)}
+                onCanPlay={() => setIsLoading(false)}
+                onError={() => setIsLoading(false)}
+                className="w-full h-full object-contain"
+              />
             </div>
 
             {/* 2. 비디오 타이틀 */}
