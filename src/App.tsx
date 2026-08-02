@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { KAORI_VIDEOS, type VideoItem } from './data/videos';
 import { Play, Film, Loader2, ExternalLink, ThumbsUp, ThumbsDown, Share2, Bookmark, MessageSquare, Sparkles, ArrowLeft, Grid, LayoutList } from 'lucide-react';
 
@@ -10,11 +10,32 @@ export default function App() {
   const [likeCount, setLikeCount] = useState<number>(358);
   const [isLiked, setIsLiked] = useState<boolean>(false);
 
+  // 목록 화면 스크롤 위치 저장용 Ref
+  const gridScrollPosRef = useRef<number>(0);
+  // 우측 추천 동영상 목록 Container Ref
+  const sidebarListRef = useRef<HTMLDivElement>(null);
+
   const handleSelectVideo = (video: VideoItem) => {
+    if (viewMode === 'grid') {
+      gridScrollPosRef.current = window.scrollY;
+    }
     setSelectedVideo(video);
     setIsLoading(true);
     setViewMode('detail');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    // 화면 전체 및 우측 추천 목록 스크롤 최상단 초기화
+    window.scrollTo(0, 0);
+    if (sidebarListRef.current) {
+      sidebarListRef.current.scrollTop = 0;
+    }
+  };
+
+  const handleGoToGrid = () => {
+    setViewMode('grid');
+    // DOM 업데이트 후 저장했던 스크롤 위치로 복원
+    setTimeout(() => {
+      window.scrollTo(0, gridScrollPosRef.current);
+    }, 0);
   };
 
   const handleLike = () => {
@@ -34,7 +55,7 @@ export default function App() {
         <div className="flex items-center gap-3">
           {viewMode === 'detail' && (
             <button
-              onClick={() => setViewMode('grid')}
+              onClick={handleGoToGrid}
               className="p-2 -ml-1 hover:bg-zinc-800 rounded-full text-zinc-300 hover:text-white transition-colors flex items-center gap-1.5 text-xs font-semibold"
               title="목록으로 돌아가기"
             >
@@ -44,7 +65,7 @@ export default function App() {
           )}
 
           <div
-            onClick={() => setViewMode('grid')}
+            onClick={handleGoToGrid}
             className="flex items-center gap-3 cursor-pointer group"
           >
             <div className="p-1.5 bg-rose-600 rounded-lg text-white group-hover:scale-105 transition-transform">
@@ -59,7 +80,7 @@ export default function App() {
         <div className="flex items-center gap-3 text-xs text-zinc-400">
           <div className="flex bg-zinc-900 rounded-lg p-1 border border-zinc-800">
             <button
-              onClick={() => setViewMode('grid')}
+              onClick={handleGoToGrid}
               className={`px-3 py-1 rounded-md transition-colors flex items-center gap-1.5 ${
                 viewMode === 'grid' ? 'bg-rose-600 text-white font-medium' : 'hover:text-zinc-200'
               }`}
@@ -68,7 +89,10 @@ export default function App() {
               <span>목록</span>
             </button>
             <button
-              onClick={() => setViewMode('detail')}
+              onClick={() => {
+                setViewMode('detail');
+                window.scrollTo(0, 0);
+              }}
               className={`px-3 py-1 rounded-md transition-colors flex items-center gap-1.5 ${
                 viewMode === 'detail' ? 'bg-rose-600 text-white font-medium' : 'hover:text-zinc-200'
               }`}
@@ -146,11 +170,11 @@ export default function App() {
         </main>
       ) : (
         /* ================= 상세 재생 화면 (Detail View) ================= */
-        <div className="flex-1 max-w-[1700px] w-full mx-auto p-4 lg:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div className="flex-1 max-w-[1700px] w-full mx-auto p-4 lg:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
           {/* 모바일 뒤로가기 상단 바 */}
           <div className="lg:hidden col-span-1 -mb-2">
             <button
-              onClick={() => setViewMode('grid')}
+              onClick={handleGoToGrid}
               className="flex items-center gap-2 px-3 py-1.5 bg-zinc-800/80 rounded-lg text-xs text-zinc-300 font-medium border border-zinc-700/50"
             >
               <ArrowLeft className="w-4 h-4 text-rose-500" />
@@ -160,8 +184,8 @@ export default function App() {
 
           {/* 좌측 영역: 비디오 플레이어 + 제목/채널/버튼 + 영상 상세 설명 + 댓글 영역 (col-span-8) */}
           <div className="lg:col-span-8 flex flex-col gap-4">
-            {/* 1. 비디오 플레이어 */}
-            <div className="w-full aspect-video bg-black rounded-2xl overflow-hidden relative shadow-2xl border border-zinc-800">
+            {/* 1. 비디오 플레이어 - lg 이상 화면에서 sticky 상단 고정 */}
+            <div className="w-full aspect-video bg-black rounded-2xl overflow-hidden relative shadow-2xl border border-zinc-800 lg:sticky lg:top-18 z-20">
               {isLoading && (
                 <div className="absolute inset-0 bg-zinc-950/90 backdrop-blur-sm z-10 flex flex-col items-center justify-center gap-3">
                   <Loader2 className="w-10 h-10 text-rose-500 animate-spin" />
@@ -278,14 +302,14 @@ export default function App() {
           </div>
 
           {/* 우측 영역: 관련 비디오 추천 목록 (col-span-4) - sticky로 상단 고정 */}
-          <div className="lg:col-span-4 flex flex-col gap-3 lg:sticky lg:top-20 self-start">
+          <div className="lg:col-span-4 flex flex-col gap-3 lg:sticky lg:top-18 self-start">
             <div className="flex items-center justify-between pb-1">
               <h2 className="text-sm font-bold text-zinc-200 flex items-center gap-1.5">
                 <Sparkles className="w-4 h-4 text-rose-500" />
                 다음 추천 동영상 ({KAORI_VIDEOS.length})
               </h2>
               <button
-                onClick={() => setViewMode('grid')}
+                onClick={handleGoToGrid}
                 className="text-xs text-rose-400 hover:underline font-medium"
               >
                 전체보기
@@ -293,7 +317,7 @@ export default function App() {
             </div>
 
             {/* 비디오 리스트 */}
-            <div className="flex flex-col gap-3 max-h-[calc(100vh-120px)] overflow-y-auto pr-1">
+            <div ref={sidebarListRef} className="flex flex-col gap-3 max-h-[calc(100vh-120px)] overflow-y-auto pr-1">
               {KAORI_VIDEOS.map((item) => {
                 const isSelected = selectedVideo.id === item.id;
                 return (
@@ -342,4 +366,5 @@ export default function App() {
     </div>
   );
 }
+
 
