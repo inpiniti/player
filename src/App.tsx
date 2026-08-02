@@ -2,6 +2,12 @@ import { useState, useRef } from 'react';
 import { KAORI_VIDEOS, type VideoItem } from './data/videos';
 import { Play, Film, Loader2, ExternalLink, ThumbsUp, ThumbsDown, Share2, Bookmark, MessageSquare, Sparkles, ArrowLeft, Grid, LayoutList } from 'lucide-react';
 
+declare global {
+  interface Window {
+    CF_WORKER_URL?: string;
+  }
+}
+
 export default function App() {
   // viewMode: 'grid' (홈/목록 화면) 또는 'detail' (상세 재생 화면)
   const [viewMode, setViewMode] = useState<'grid' | 'detail'>('grid');
@@ -197,8 +203,9 @@ export default function App() {
                 controls
                 autoPlay
                 src={
-                  selectedVideo.id.startsWith('tm_')
-                    ? `/tm-stream/video.mp4?url=${encodeURIComponent(selectedVideo.videoUrl)}`
+                  // Cloudflare Worker 주소 설정 시 모든 영상을 Worker를 통해 스트리밍 (Vercel 대역폭 0B & VPN 우회)
+                  window.CF_WORKER_URL
+                    ? `${window.CF_WORKER_URL}/?url=${encodeURIComponent(selectedVideo.videoUrl)}`
                     : selectedVideo.videoUrl
                 }
                 onLoadStart={() => setIsLoading(true)}
