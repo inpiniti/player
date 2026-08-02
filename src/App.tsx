@@ -196,7 +196,11 @@ export default function App() {
                 key={selectedVideo.videoUrl}
                 controls
                 autoPlay
-                src={selectedVideo.videoUrl}
+                src={
+                  selectedVideo.id.startsWith('tm_')
+                    ? `/tm-stream/video.mp4?url=${encodeURIComponent(selectedVideo.videoUrl)}`
+                    : selectedVideo.videoUrl
+                }
                 onLoadStart={() => setIsLoading(true)}
                 onCanPlay={() => setIsLoading(false)}
                 onError={() => setIsLoading(false)}
