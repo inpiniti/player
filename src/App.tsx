@@ -2,11 +2,8 @@ import { useState, useRef } from 'react';
 import { KAORI_VIDEOS, type VideoItem } from './data/videos';
 import { Play, Film, Loader2, ExternalLink, ThumbsUp, ThumbsDown, Share2, Bookmark, MessageSquare, Sparkles, ArrowLeft, Grid, LayoutList } from 'lucide-react';
 
-declare global {
-  interface Window {
-    CF_WORKER_URL?: string;
-  }
-}
+// Cloudflare Edge Worker URL (Vercel 대역폭 0B & VPN 차단 우회)
+const CF_WORKER_URL = 'https://kaori-proxy.younginpiniti.workers.dev';
 
 export default function App() {
   // viewMode: 'grid' (홈/목록 화면) 또는 'detail' (상세 재생 화면)
@@ -202,12 +199,7 @@ export default function App() {
                 key={selectedVideo.videoUrl}
                 controls
                 autoPlay
-                src={
-                  // Cloudflare Worker 주소 설정 시 모든 영상을 Worker를 통해 스트리밍 (Vercel 대역폭 0B & VPN 우회)
-                  window.CF_WORKER_URL
-                    ? `${window.CF_WORKER_URL}/?url=${encodeURIComponent(selectedVideo.videoUrl)}`
-                    : selectedVideo.videoUrl
-                }
+                src={`${CF_WORKER_URL}/?url=${encodeURIComponent(selectedVideo.videoUrl)}`}
                 onLoadStart={() => setIsLoading(true)}
                 onCanPlay={() => setIsLoading(false)}
                 onError={() => setIsLoading(false)}
