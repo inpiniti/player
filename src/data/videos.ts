@@ -406,5 +406,59 @@ export const KAORI_VIDEOS: VideoItem[] = [
     "videoUrl": "https://www.tokyomotion.net/vsrc/sd/bb61826296f849b1a9a7",
     "thumbnailUrl": "https://cdn.tokyo-motion.net/media/videos/tmb161/5170051/default.jpg",
     "originalUrl": "https://www.tokyomotion.net/video/5170051"
+  },
+  {
+    "id": "tna_7165701",
+    "title": "[TNAFlix] Chinese Delivery Girl - Lele Wu Timestop",
+    "videoUrl": "https://sl107.tnaflix.com/71/65/7165701/chinese-delivery-girl-lele-wu-timestop-1080p.mp4?rs=522k&rb=6192k&secure=e2pWPOSOZRWM5fNYDZ8iUw==,1785717078",
+    "thumbnailUrl": "https://img.tnaflix.com/a16:9q80w920/107/71/65/7165701/thumbs/10.jpg"
+  },
+  {
+    "id": "tna_7248216",
+    "title": "[TNAFlix] Chinese Delivery Girl - Lele Wu Timestop (Part 2)",
+    "videoUrl": "https://sl107.tnaflix.com/72/48/7248216/chinese-delivery-girl-lele-wu-timestop-1080p.mp4?rs=522k&rb=6192k&secure=11cZFj1peKdLIK2PCv9BRw==,1785717079",
+    "thumbnailUrl": "https://img.tnaflix.com/a16:9q80w920/107/72/48/7248216/thumbs/10.jpg"
+  },
+  {
+    "id": "tna_7495396",
+    "title": "[TNAFlix] Taiwan swag girl lele",
+    "videoUrl": "https://sl108.tnaflix.com/74/95/7495396/taiwan-swag-girl-lele-720p.mp4?rs=269k&rb=4264k&secure=bcsQDkhey8KiKZNqMn49hw==,1785717079",
+    "thumbnailUrl": "https://img.tnaflix.com/a16:9q80w920/108/74/95/7495396/thumbs/10.jpg"
+  },
+  {
+    "id": "tna_7495365",
+    "title": "[TNAFlix] Swag girl lele 2 in train",
+    "videoUrl": "https://sl109.tnaflix.com/74/95/7495365/swag-girl-lele-2-in-train-720p.mp4?rs=269k&rb=4006k&secure=zr1gcNRXzpBfEJ6Q7UeOGQ==,1785717080",
+    "thumbnailUrl": "https://img.tnaflix.com/a16:9q80w920/109/74/95/7495365/thumbs/10.jpg"
+  },
+  {
+    "id": "tna_10583026",
+    "title": "[TNAFlix] Lele Wu seller girl",
+    "videoUrl": "https://sl198.tnaflix.com/10/58/10583026/lele-wu-seller-girl-1080p.mp4?rs=522k&rb=12973k&secure=cC7tfJtvsJMwvrt3-zyAoQ==,1785717080",
+    "thumbnailUrl": "https://img.tnaflix.com/a16:9q80w920/198/10/58/10583026/thumbs/10.jpg"
+  },
+  {
+    "id": "tna_7242213",
+    "title": "[TNAFlix] lelewu timestop 2",
+    "videoUrl": "https://sl107.tnaflix.com/72/42/7242213/lelewu-timestop-2-1080p_60fps.mp4?rs=1027k&rb=20351k&secure=m24x7gm71Dwy-5snnz8R2w==,1785717081",
+    "thumbnailUrl": "https://img.tnaflix.com/a16:9q80w920/107/72/42/7242213/thumbs/10.jpg"
+  },
+  {
+    "id": "tna_25345902",
+    "title": "[TNAFlix] F cup boobs horny ghost lele wu hungry for your cum sadako",
+    "videoUrl": "https://sl176.tnaflix.com/25/34/25345902/f-cup-boobs-horny-ghost-lele-wu-hungry-for-your-cum-sadako-cosplay-480p.mp4?rs=118k&rb=1656k&secure=0dWE2Q5dLDOm9bR_N7CfaA==,1785717082",
+    "thumbnailUrl": "https://img.tnaflix.com/a16:9q80w920/176/25/34/25345902/thumbs/10.jpg"
+  },
+  {
+    "id": "tna_6734943",
+    "title": "[TNAFlix] lelewu",
+    "videoUrl": "https://sl105.tnaflix.com/67/34/6734943/lelewu-720p.mp4?rs=269k&rb=2333k&secure=XvLOE09ah2k24eni0zB-wg==,1785717082",
+    "thumbnailUrl": "https://img.tnaflix.com/a16:9q80w920/105/67/34/6734943/thumbs/10.jpg"
+  },
+  {
+    "id": "tna_25486790",
+    "title": "[TNAFlix] lele_wu",
+    "videoUrl": "https://sl174.tnaflix.com/25/48/25486790/lele_wu-480p.mp4?rs=118k&rb=734k&secure=ej2kqcQfqA8ugczFKJ3PjQ==,1785717083",
+    "thumbnailUrl": "https://img.tnaflix.com/a16:9q80w920/174/25/48/25486790/thumbs/10.jpg"
   }
 ];

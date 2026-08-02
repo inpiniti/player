@@ -40,7 +40,7 @@ export default {
         newHeaders.set('Referer', 'https://www.tokyomotion.net/');
         newHeaders.set('Origin', 'https://www.tokyomotion.net');
       } else {
-        newHeaders.set('Referer', 'https://kissjav.li/');
+        newHeaders.set('Referer', `${parsedTarget.protocol}//${parsedTarget.hostname}/`);
       }
 
       // 3. Cloudflare Edge에서 대상 비디오 URL 스트리밍 요청
