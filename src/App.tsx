@@ -134,10 +134,16 @@ export default function App() {
                   <img
                     src={item.thumbnailUrl}
                     alt={item.title}
+                    referrerPolicy="no-referrer"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                     onError={(e) => {
-                      (e.target as HTMLElement).style.display = 'none';
+                      // 썸네일 차단 시 Cloudflare Worker 우회 썸네일로 2차 시도
+                      const target = e.target as HTMLImageElement;
+                      if (!target.dataset.retried) {
+                        target.dataset.retried = 'true';
+                        target.src = `${CF_WORKER_URL}/?url=${encodeURIComponent(item.thumbnailUrl)}`;
+                      }
                     }}
                   />
                   {/* 재생 오버레이 아이콘 */}
@@ -338,10 +344,15 @@ export default function App() {
                       <img
                         src={item.thumbnailUrl}
                         alt={item.title}
+                        referrerPolicy="no-referrer"
                         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                         loading="lazy"
                         onError={(e) => {
-                          (e.target as HTMLElement).style.display = 'none';
+                          const target = e.target as HTMLImageElement;
+                          if (!target.dataset.retried) {
+                            target.dataset.retried = 'true';
+                            target.src = `${CF_WORKER_URL}/?url=${encodeURIComponent(item.thumbnailUrl)}`;
+                          }
                         }}
                       />
                       {isSelected && (
