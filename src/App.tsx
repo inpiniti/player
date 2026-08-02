@@ -192,16 +192,27 @@ export default function App() {
                   <p className="text-xs text-rose-200 font-medium">영상을 로딩 중입니다...</p>
                 </div>
               )}
-              <video
-                key={selectedVideo.videoUrl}
-                controls
-                autoPlay
-                src={selectedVideo.videoUrl}
-                onLoadStart={() => setIsLoading(true)}
-                onCanPlay={() => setIsLoading(false)}
-                onError={() => setIsLoading(false)}
-                className="w-full h-full object-contain"
-              />
+              {selectedVideo.id.startsWith('tm_') ? (
+                <iframe
+                  key={selectedVideo.id}
+                  src={`https://www.tokyomotion.net/embed/${selectedVideo.id.replace('tm_', '')}`}
+                  className="w-full h-full border-0"
+                  allowFullScreen
+                  allow="autoplay; encrypted-media"
+                  onLoad={() => setIsLoading(false)}
+                />
+              ) : (
+                <video
+                  key={selectedVideo.videoUrl}
+                  controls
+                  autoPlay
+                  src={selectedVideo.videoUrl}
+                  onLoadStart={() => setIsLoading(true)}
+                  onCanPlay={() => setIsLoading(false)}
+                  onError={() => setIsLoading(false)}
+                  className="w-full h-full object-contain"
+                />
+              )}
             </div>
 
             {/* 2. 비디오 타이틀 */}
