@@ -138,11 +138,19 @@ export default function App() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                     onError={(e) => {
-                      // 썸네일 차단 시 Cloudflare Worker 우회 썸네일로 2차 시도
                       const target = e.target as HTMLImageElement;
                       if (!target.dataset.retried) {
-                        target.dataset.retried = 'true';
+                        target.dataset.retried = '1';
+                        // 1차: 로컬 public/thumbnails/ 경로에서 시도
+                        target.src = `/thumbnails/${item.id}.jpg`;
+                      } else if (target.dataset.retried === '1') {
+                        target.dataset.retried = '2';
+                        // 2차: Cloudflare Worker 시도
                         target.src = `${CF_WORKER_URL}/?url=${encodeURIComponent(item.thumbnailUrl)}`;
+                      } else if (target.dataset.retried === '2') {
+                        target.dataset.retried = '3';
+                        // 3차: 로컬 세련된 플레이스홀더로 안착
+                        target.src = '/placeholder.png';
                       }
                     }}
                   />
@@ -350,8 +358,14 @@ export default function App() {
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
                           if (!target.dataset.retried) {
-                            target.dataset.retried = 'true';
+                            target.dataset.retried = '1';
+                            target.src = `/thumbnails/${item.id}.jpg`;
+                          } else if (target.dataset.retried === '1') {
+                            target.dataset.retried = '2';
                             target.src = `${CF_WORKER_URL}/?url=${encodeURIComponent(item.thumbnailUrl)}`;
+                          } else if (target.dataset.retried === '2') {
+                            target.dataset.retried = '3';
+                            target.src = '/placeholder.png';
                           }
                         }}
                       />
