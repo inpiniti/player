@@ -193,14 +193,24 @@ export default function App() {
                 </div>
               )}
               {selectedVideo.id.startsWith('tm_') ? (
-                <iframe
-                  key={selectedVideo.id}
-                  src={`https://www.tokyomotion.net/embed/${selectedVideo.id.replace('tm_', '')}`}
-                  className="w-full h-full border-0"
-                  allowFullScreen
-                  allow="autoplay; encrypted-media"
-                  onLoad={() => setIsLoading(false)}
-                />
+                <div className="relative w-full h-full bg-zinc-950 flex flex-col items-center justify-center p-6 text-center">
+                  <div className="w-16 h-16 rounded-full bg-rose-600/20 text-rose-500 flex items-center justify-center mb-4 border border-rose-500/30">
+                    <ExternalLink className="w-8 h-8" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2">Tokyomotion 외부 도메인 차단 영상</h3>
+                  <p className="text-xs text-zinc-400 max-w-md leading-relaxed mb-6">
+                    Tokyomotion 서버의 핫링크 및 타 사이트 임베드 차단 보안 정책으로 인해 사이트 외부에서의 직접 재생이 제한됩니다.
+                  </p>
+                  <a
+                    href={selectedVideo.originalUrl || selectedVideo.videoUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="px-6 py-3 bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white font-bold text-xs rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    <span>Tokyomotion 원본 페이지에서 보기</span>
+                  </a>
+                </div>
               ) : (
                 <video
                   key={selectedVideo.videoUrl}
