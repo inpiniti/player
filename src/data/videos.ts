@@ -3,6 +3,7 @@ export interface VideoItem {
   title: string;
   videoUrl: string;
   thumbnailUrl: string;
+  originalUrl?: string;
 }
 
 export const KAORI_VIDEOS: VideoItem[] = [
@@ -298,96 +299,112 @@ export const KAORI_VIDEOS: VideoItem[] = [
     "id": "tm_6705859",
     "title": "[Tokyomotion] @kaori_xoxo 04",
     "videoUrl": "https://www.tokyomotion.net/vsrc/sd/d82d74b79d60b0e2eab3",
-    "thumbnailUrl": "https://cdn.tokyo-motion.net/media/videos/tmb209/6705859/default.jpg"
+    "thumbnailUrl": "https://cdn.tokyo-motion.net/media/videos/tmb209/6705859/default.jpg",
+    "originalUrl": "https://www.tokyomotion.net/video/6705859"
   },
   {
     "id": "tm_6705858",
     "title": "[Tokyomotion] @kaori_xoxo 03",
     "videoUrl": "https://www.tokyomotion.net/vsrc/sd/a5cb2dcf5cb76d203fed",
-    "thumbnailUrl": "https://cdn.tokyo-motion.net/media/videos/tmb209/6705858/default.jpg"
+    "thumbnailUrl": "https://cdn.tokyo-motion.net/media/videos/tmb209/6705858/default.jpg",
+    "originalUrl": "https://www.tokyomotion.net/video/6705858"
   },
   {
     "id": "tm_6705856",
     "title": "[Tokyomotion] @kaori_xoxo 02",
     "videoUrl": "https://www.tokyomotion.net/vsrc/sd/af2d2a1c4697ca809161",
-    "thumbnailUrl": "https://cdn.tokyo-motion.net/media/videos/tmb209/6705856/default.jpg"
+    "thumbnailUrl": "https://cdn.tokyo-motion.net/media/videos/tmb209/6705856/default.jpg",
+    "originalUrl": "https://www.tokyomotion.net/video/6705856"
   },
   {
     "id": "tm_6705855",
     "title": "[Tokyomotion] @kaori_xoxo 01",
     "videoUrl": "https://www.tokyomotion.net/vsrc/sd/1f9dccac97bf2a09199d",
-    "thumbnailUrl": "https://cdn.tokyo-motion.net/media/videos/tmb209/6705855/default.jpg"
+    "thumbnailUrl": "https://cdn.tokyo-motion.net/media/videos/tmb209/6705855/default.jpg",
+    "originalUrl": "https://www.tokyomotion.net/video/6705855"
   },
   {
     "id": "tm_6424475",
     "title": "[Tokyomotion] kaori_xoxo",
     "videoUrl": "https://www.tokyomotion.net/vsrc/sd/72a2c6d9eee0b4231d49",
-    "thumbnailUrl": "https://cdn.tokyo-motion.net/media/videos/tmb200/6424475/default.jpg"
+    "thumbnailUrl": "https://cdn.tokyo-motion.net/media/videos/tmb200/6424475/default.jpg",
+    "originalUrl": "https://www.tokyomotion.net/video/6424475"
   },
   {
     "id": "tm_6424468",
     "title": "[Tokyomotion] kaori_xoxo",
     "videoUrl": "https://www.tokyomotion.net/vsrc/sd/c841f73e0add874f5f7b",
-    "thumbnailUrl": "https://cdn.tokyo-motion.net/media/videos/tmb200/6424468/default.jpg"
+    "thumbnailUrl": "https://cdn.tokyo-motion.net/media/videos/tmb200/6424468/default.jpg",
+    "originalUrl": "https://www.tokyomotion.net/video/6424468"
   },
   {
     "id": "tm_6424440",
     "title": "[Tokyomotion] kaori_xoxo",
     "videoUrl": "https://www.tokyomotion.net/vsrc/sd/93576fdd48053c4f88a4",
-    "thumbnailUrl": "https://cdn.tokyo-motion.net/media/videos/tmb200/6424440/default.jpg"
+    "thumbnailUrl": "https://cdn.tokyo-motion.net/media/videos/tmb200/6424440/default.jpg",
+    "originalUrl": "https://www.tokyomotion.net/video/6424440"
   },
   {
     "id": "tm_6424320",
     "title": "[Tokyomotion] kaori_xoxo",
     "videoUrl": "https://www.tokyomotion.net/vsrc/sd/c2205ae1288a89927bb5",
-    "thumbnailUrl": "https://cdn.tokyo-motion.net/media/videos/tmb200/6424320/default.jpg"
+    "thumbnailUrl": "https://cdn.tokyo-motion.net/media/videos/tmb200/6424320/default.jpg",
+    "originalUrl": "https://www.tokyomotion.net/video/6424320"
   },
   {
     "id": "tm_6424244",
     "title": "[Tokyomotion] kaori_xoxo",
     "videoUrl": "https://www.tokyomotion.net/vsrc/sd/6ae7c7474abfe2090337",
-    "thumbnailUrl": "https://cdn.tokyo-motion.net/media/videos/tmb200/6424244/default.jpg"
+    "thumbnailUrl": "https://cdn.tokyo-motion.net/media/videos/tmb200/6424244/default.jpg",
+    "originalUrl": "https://www.tokyomotion.net/video/6424244"
   },
   {
     "id": "tm_6424197",
     "title": "[Tokyomotion] kaori_xoxo",
     "videoUrl": "https://www.tokyomotion.net/vsrc/sd/5cf7beeacc0fb178f9d2",
-    "thumbnailUrl": "https://cdn.tokyo-motion.net/media/videos/tmb200/6424197/default.jpg"
+    "thumbnailUrl": "https://cdn.tokyo-motion.net/media/videos/tmb200/6424197/default.jpg",
+    "originalUrl": "https://www.tokyomotion.net/video/6424197"
   },
   {
     "id": "tm_6424106",
     "title": "[Tokyomotion] kaori_xoxo",
     "videoUrl": "https://www.tokyomotion.net/vsrc/sd/032fc3450c7941d2ac53",
-    "thumbnailUrl": "https://cdn.tokyo-motion.net/media/videos/tmb200/6424106/default.jpg"
+    "thumbnailUrl": "https://cdn.tokyo-motion.net/media/videos/tmb200/6424106/default.jpg",
+    "originalUrl": "https://www.tokyomotion.net/video/6424106"
   },
   {
     "id": "tm_6424093",
     "title": "[Tokyomotion] kaori_xoxo",
     "videoUrl": "https://www.tokyomotion.net/vsrc/sd/aa53326de31b5537112f",
-    "thumbnailUrl": "https://cdn.tokyo-motion.net/media/videos/tmb200/6424093/default.jpg"
+    "thumbnailUrl": "https://cdn.tokyo-motion.net/media/videos/tmb200/6424093/default.jpg",
+    "originalUrl": "https://www.tokyomotion.net/video/6424093"
   },
   {
     "id": "tm_5794217",
     "title": "[Tokyomotion] 裏垢 kaori_xoxo ③",
     "videoUrl": "https://www.tokyomotion.net/vsrc/sd/8615ae55ed78aca5b29f",
-    "thumbnailUrl": "https://cdn.tokyo-motion.net/media/videos/tmb181/5794217/default.jpg"
+    "thumbnailUrl": "https://cdn.tokyo-motion.net/media/videos/tmb181/5794217/default.jpg",
+    "originalUrl": "https://www.tokyomotion.net/video/5794217"
   },
   {
     "id": "tm_5793538",
     "title": "[Tokyomotion] 裏垢 kaori_xoxo",
     "videoUrl": "https://www.tokyomotion.net/vsrc/sd/16dc841f3af07209afe5",
-    "thumbnailUrl": "https://cdn.tokyo-motion.net/media/videos/tmb181/5793538/default.jpg"
+    "thumbnailUrl": "https://cdn.tokyo-motion.net/media/videos/tmb181/5793538/default.jpg",
+    "originalUrl": "https://www.tokyomotion.net/video/5793538"
   },
   {
     "id": "tm_5792231",
     "title": "[Tokyomotion] 裏垢 kaori_xoxo",
     "videoUrl": "https://www.tokyomotion.net/vsrc/sd/cc6c14211938e51e8f4c",
-    "thumbnailUrl": "https://cdn.tokyo-motion.net/media/videos/tmb181/5792231/default.jpg"
+    "thumbnailUrl": "https://cdn.tokyo-motion.net/media/videos/tmb181/5792231/default.jpg",
+    "originalUrl": "https://www.tokyomotion.net/video/5792231"
   },
   {
     "id": "tm_5170051",
     "title": "[Tokyomotion] Kaori_xoxo",
     "videoUrl": "https://www.tokyomotion.net/vsrc/sd/bb61826296f849b1a9a7",
-    "thumbnailUrl": "https://cdn.tokyo-motion.net/media/videos/tmb161/5170051/default.jpg"
+    "thumbnailUrl": "https://cdn.tokyo-motion.net/media/videos/tmb161/5170051/default.jpg",
+    "originalUrl": "https://www.tokyomotion.net/video/5170051"
   }
 ];

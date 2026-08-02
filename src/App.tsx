@@ -196,7 +196,6 @@ export default function App() {
                 key={selectedVideo.videoUrl}
                 controls
                 autoPlay
-                referrerPolicy="no-referrer"
                 src={selectedVideo.videoUrl}
                 onLoadStart={() => setIsLoading(true)}
                 onCanPlay={() => setIsLoading(false)}
@@ -246,7 +245,7 @@ export default function App() {
                 </div>
 
                 <a
-                  href={selectedVideo.videoUrl}
+                  href={selectedVideo.originalUrl || selectedVideo.videoUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center gap-1.5 px-3.5 py-2 bg-zinc-800/80 hover:bg-zinc-700/70 text-zinc-200 rounded-full border border-zinc-700/50 transition-colors"
